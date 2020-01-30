@@ -5,25 +5,29 @@ using namespace std;
 #define INF 1e9
 
 /*
-*   This implementation performs Graham's Scan by sorting vertices
+*   This code computes Convex Hull using Graham's Scan by sorting vertices
 *   by angle, with respect to pivot. Pivot is choosen to be the 
 *   left-most bottom-most point.
+*   Time Complexity: O(nlogn)
 */
 
 struct Point
 {
     int x, y;
+
     Point(int a, int b)
     {
         x = a;
         y = b;
     }
+
     bool operator<(const Point &p)
     {
         if (x != p.x)
             return x < p.x;
         return y < p.y;
     }
+
     int cross(Point &p)
     {
         return (x * p.y - p.x * y);
@@ -71,10 +75,6 @@ void insert(Point &p, stack<Point> &order)
     order.push(p);
 }
 
-/*  Following implementation is robust to:
-*       1. Repetition of points
-*       2. Collinear points
-*/
 
 int main()
 {
@@ -110,8 +110,6 @@ int main()
     for(int i = 2; i < n; i++)
         insert(vp[i], order);
 
-    // Convex Hull in counter clockwise order
-    cout << "Convex Hull (counter clockwise order): " << endl;
     stack<Point> invert_order;
     while (!order.empty())
     {
@@ -120,6 +118,8 @@ int main()
         order.pop();
     }
 
+    // Convex Hull in counter clockwise order
+    cout << "Convex Hull (counter clockwise order): " << endl;
     while(!invert_order.empty())
     {
         Point top = invert_order.top();
@@ -128,3 +128,5 @@ int main()
     }
     return 0;
 }
+
+// TODO: Fix bug with collinear points
