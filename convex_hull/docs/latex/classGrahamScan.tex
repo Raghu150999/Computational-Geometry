@@ -1,0 +1,375 @@
+\hypertarget{classGrahamScan}{}\section{Graham\+Scan$<$ T $>$ Class Template Reference}
+\label{classGrahamScan}\index{Graham\+Scan$<$ T $>$@{Graham\+Scan$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Graham\+Scan.\+hpp$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classGrahamScan_1_1Comparator}{Comparator}}
+\begin{DoxyCompactList}\small\item\em Compare ordering of points for graham\textquotesingle{}s scan. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGrahamScan_af518504ce673b75e7bef7a0de90e7699}{Graham\+Scan}} (vector$<$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$$>$ \&points)
+\begin{DoxyCompactList}\small\item\em Construct a new Graham Scan object. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ $>$ \mbox{\hyperlink{classGrahamScan_a0731f364efdbbb6028a38c623e99766d}{get\+Convex\+Hull}} ()
+\item 
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classGrahamScan_af47ec86625b2f4f32752c92ef29fbcbd}{get\+Right\+Tangent\+Point}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ pivot)
+\begin{DoxyCompactList}\small\item\em Get the Right Tangent \mbox{\hyperlink{classPoint}{Point}}, using binary search on the convex hull from the pivot as reference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGrahamScan_a942f7d7c58a6992600b6adda70e5e14d}{insert}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Insert new point into the stack of partially constructed convex hull. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGrahamScan_ad87ba02c8b5dd0ba8e96c2b09e9c9b79}{is\+Below}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ pivot, \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ a, \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ b)
+\begin{DoxyCompactList}\small\item\em Determine if \textquotesingle{}a\textquotesingle{} lies strictly to left of \textquotesingle{}b\textquotesingle{} (in orientation) w.\+r.\+t pivot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGrahamScan_a977e22d33d7ebed099a17c76698be137}{is\+Above}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ pivot, \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ a, \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ b)
+\begin{DoxyCompactList}\small\item\em Determine if a lies strictly to right of b (in orientation) w.\+r.\+t pivot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{get\+Point}} (int idx)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classPoint}{Point}} from convex hull at position \textquotesingle{}idx\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+stack$<$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ $>$ \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}
+\begin{DoxyCompactList}\small\item\em Order stack for maintaining points in the partially constructed convex hull. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGrahamScan_a4769bbdb7caacde8c368a0074fccef19}{num\+Points}}
+\begin{DoxyCompactList}\small\item\em Number of points in input. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ $>$ \mbox{\hyperlink{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}{convex\+Hull}}
+\begin{DoxyCompactList}\small\item\em Counter clockwiser order of points in the convex hull. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}{convex\+Hull\+Size}}
+\begin{DoxyCompactList}\small\item\em Number of points in convex hull. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGrahamScan_af518504ce673b75e7bef7a0de90e7699}\label{classGrahamScan_af518504ce673b75e7bef7a0de90e7699}} 
+\index{Graham\+Scan@{Graham\+Scan}!Graham\+Scan@{Graham\+Scan}}
+\index{Graham\+Scan@{Graham\+Scan}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{Graham\+Scan()}{GrahamScan()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::\mbox{\hyperlink{classGrahamScan}{Graham\+Scan}} (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$$>$ \&}]{points }\end{DoxyParamCaption})}
+
+
+
+Construct a new Graham Scan object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & set of points for constructing convex hull \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{classGrahamScan_a4769bbdb7caacde8c368a0074fccef19}{numPoints}} = points.size();}
+\DoxyCodeLine{16     assert(\mbox{\hyperlink{classGrahamScan_a4769bbdb7caacde8c368a0074fccef19}{numPoints}} >= 3);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{classPoint}{Point<T>}} best(points[0]);}
+\DoxyCodeLine{19     \textcolor{keywordflow}{for} (\mbox{\hyperlink{classPoint}{Point<T>}} \&point : points)}
+\DoxyCodeLine{20         \textcolor{keywordflow}{if} (point < best)}
+\DoxyCodeLine{21             best = point;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{comment}{// Sort vertices by x-coordinate then by y-coordinate}}
+\DoxyCodeLine{24     sort(points.begin(), points.end(), Comparator(best));}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.push(points[0]);}
+\DoxyCodeLine{27     \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.push(points[1]);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{comment}{// Construct Convex hull}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 2; i < \mbox{\hyperlink{classGrahamScan_a4769bbdb7caacde8c368a0074fccef19}{numPoints}}; i++)}
+\DoxyCodeLine{31         \mbox{\hyperlink{classGrahamScan_a942f7d7c58a6992600b6adda70e5e14d}{insert}}(points[i]);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{// Get all points in convex hull avoiding repeatition for lowermost-leftmost point}}
+\DoxyCodeLine{34     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.empty())}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \mbox{\hyperlink{classPoint}{Point<T>}} top = \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.top();}
+\DoxyCodeLine{37         \mbox{\hyperlink{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}{convexHull}}.push\_back(top);}
+\DoxyCodeLine{38         \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.pop();}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40     reverse(\mbox{\hyperlink{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}{convexHull}}.begin(), \mbox{\hyperlink{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}{convexHull}}.end());}
+\DoxyCodeLine{41     \mbox{\hyperlink{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}{convexHullSize}} = \mbox{\hyperlink{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}{convexHull}}.size();}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGrahamScan_a0731f364efdbbb6028a38c623e99766d}\label{classGrahamScan_a0731f364efdbbb6028a38c623e99766d}} 
+\index{Graham\+Scan@{Graham\+Scan}!get\+Convex\+Hull@{get\+Convex\+Hull}}
+\index{get\+Convex\+Hull@{get\+Convex\+Hull}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{get\+Convex\+Hull()}{getConvexHull()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ $>$ \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::get\+Convex\+Hull (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+vector$<$Point$<$\+T$>$$>$ set of points in convex hull in counter clockwise order 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} \mbox{\hyperlink{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}{convexHull}};}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}\label{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}} 
+\index{Graham\+Scan@{Graham\+Scan}!get\+Point@{get\+Point}}
+\index{get\+Point@{get\+Point}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{get\+Point()}{getPoint()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::get\+Point (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the \mbox{\hyperlink{classPoint}{Point}} from convex hull at position \textquotesingle{}idx\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classPoint}{Point}} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{138 \{}
+\DoxyCodeLine{139     \textcolor{keywordflow}{if} (idx >= \mbox{\hyperlink{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}{convexHullSize}})}
+\DoxyCodeLine{140         idx -= \mbox{\hyperlink{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}{convexHullSize}};}
+\DoxyCodeLine{141     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (idx < 0)}
+\DoxyCodeLine{142         idx += \mbox{\hyperlink{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}{convexHullSize}};}
+\DoxyCodeLine{143     \textcolor{keywordflow}{return} \mbox{\hyperlink{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}{convexHull}}[idx];}
+\DoxyCodeLine{144 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGrahamScan_af47ec86625b2f4f32752c92ef29fbcbd}\label{classGrahamScan_af47ec86625b2f4f32752c92ef29fbcbd}} 
+\index{Graham\+Scan@{Graham\+Scan}!get\+Right\+Tangent\+Point@{get\+Right\+Tangent\+Point}}
+\index{get\+Right\+Tangent\+Point@{get\+Right\+Tangent\+Point}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{get\+Right\+Tangent\+Point()}{getRightTangentPoint()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::get\+Right\+Tangent\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{pivot }\end{DoxyParamCaption})}
+
+
+
+Get the Right Tangent \mbox{\hyperlink{classPoint}{Point}}, using binary search on the convex hull from the pivot as reference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pivot} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classPoint}{Point}} on the convex hull lying on the right tangent 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92 \{}
+\DoxyCodeLine{93     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}{convexHullSize}} < 3)}
+\DoxyCodeLine{94         \textcolor{keywordflow}{return} \mbox{\hyperlink{classJarvisStep}{JarvisStep<T>}}(pivot, \mbox{\hyperlink{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}{convexHull}}).getNext();}
+\DoxyCodeLine{95         }
+\DoxyCodeLine{96     \textcolor{comment}{// Check if convexHull[0] if local maximum}}
+\DoxyCodeLine{97     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGrahamScan_ad87ba02c8b5dd0ba8e96c2b09e9c9b79}{isBelow}}(pivot, \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(1), \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(0)) \&\&}
+\DoxyCodeLine{98         !\mbox{\hyperlink{classGrahamScan_a977e22d33d7ebed099a17c76698be137}{isAbove}}(pivot, \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(\mbox{\hyperlink{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}{convexHullSize}} - 1), 
+      \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(0)))}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(0);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{int} low = 0, high = \mbox{\hyperlink{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}{convexHullSize}};}
+\DoxyCodeLine{102     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{103     \{}
+\DoxyCodeLine{104         \textcolor{keywordtype}{int} mid = (low + high) / 2;}
+\DoxyCodeLine{105         \textcolor{keywordtype}{bool} isMidDown = \mbox{\hyperlink{classGrahamScan_ad87ba02c8b5dd0ba8e96c2b09e9c9b79}{isBelow}}(pivot, \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(mid + 1), 
+      \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(mid));}
+\DoxyCodeLine{106         \textcolor{keywordflow}{if} (isMidDown \&\& !\mbox{\hyperlink{classGrahamScan_a977e22d33d7ebed099a17c76698be137}{isAbove}}(pivot, \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(mid - 1), 
+      \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(mid)))}
+\DoxyCodeLine{107             \textcolor{keywordflow}{return} \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(mid);}
+\DoxyCodeLine{108         \textcolor{keywordtype}{bool} isLowUp = \mbox{\hyperlink{classGrahamScan_a977e22d33d7ebed099a17c76698be137}{isAbove}}(pivot, \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(low + 1), \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(low));}
+\DoxyCodeLine{109         \textcolor{keywordflow}{if} (isLowUp)}
+\DoxyCodeLine{110         \{}
+\DoxyCodeLine{111             \textcolor{keywordflow}{if} (isMidDown)}
+\DoxyCodeLine{112                 high = mid;}
+\DoxyCodeLine{113             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{114             \{}
+\DoxyCodeLine{115                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGrahamScan_a977e22d33d7ebed099a17c76698be137}{isAbove}}(pivot, \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(low), \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(mid)))}
+\DoxyCodeLine{116                     high = mid;}
+\DoxyCodeLine{117                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{118                     low = mid;}
+\DoxyCodeLine{119             \}}
+\DoxyCodeLine{120         \}}
+\DoxyCodeLine{121         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{122         \{}
+\DoxyCodeLine{123             \textcolor{keywordflow}{if} (!isMidDown)}
+\DoxyCodeLine{124                 low = mid;}
+\DoxyCodeLine{125             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{126             \{}
+\DoxyCodeLine{127                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGrahamScan_ad87ba02c8b5dd0ba8e96c2b09e9c9b79}{isBelow}}(pivot, \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(low), \mbox{\hyperlink{classGrahamScan_ae6eec90fe568ee1b61ec1d8bba4c309e}{getPoint}}(mid)))}
+\DoxyCodeLine{128                     high = mid;}
+\DoxyCodeLine{129                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{130                     low = mid;}
+\DoxyCodeLine{131             \}}
+\DoxyCodeLine{132         \}}
+\DoxyCodeLine{133     \}}
+\DoxyCodeLine{134 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGrahamScan_a942f7d7c58a6992600b6adda70e5e14d}\label{classGrahamScan_a942f7d7c58a6992600b6adda70e5e14d}} 
+\index{Graham\+Scan@{Graham\+Scan}!insert@{insert}}
+\index{insert@{insert}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Insert new point into the stack of partially constructed convex hull. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & New point to be inserted \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47     \mbox{\hyperlink{classPoint}{Point<T>}} top = \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.top();}
+\DoxyCodeLine{48     \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.pop();}
+\DoxyCodeLine{49     \textcolor{keywordflow}{while} (\mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.size() >= 1 \&\& \mbox{\hyperlink{classPoint_a33e4f445ed5dfc1a5f8cca8177c1a9c5}{Point<T>::orient}}(\mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.top(), top, p) <= 0)}
+\DoxyCodeLine{50     \{}
+\DoxyCodeLine{51         top = \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.top();}
+\DoxyCodeLine{52         \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.pop();}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54     \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.push(top);}
+\DoxyCodeLine{55     \mbox{\hyperlink{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}{order}}.push(p);}
+\DoxyCodeLine{56 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGrahamScan_a977e22d33d7ebed099a17c76698be137}\label{classGrahamScan_a977e22d33d7ebed099a17c76698be137}} 
+\index{Graham\+Scan@{Graham\+Scan}!is\+Above@{is\+Above}}
+\index{is\+Above@{is\+Above}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{is\+Above()}{isAbove()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::is\+Above (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{pivot,  }\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{a,  }\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Determine if a lies strictly to right of b (in orientation) w.\+r.\+t pivot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pivot} & \\
+\hline
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If \textquotesingle{}a\textquotesingle{} lies strictly to right of b 
+
+false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66 \{}
+\DoxyCodeLine{67     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPoint}{Point<T>::orient}}(pivot, a, b) > 0)}
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{69     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPoint}{Point<T>::orient}}(pivot, a, b) == 0)}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71         \textcolor{keywordflow}{if} (pivot.\mbox{\hyperlink{classPoint_a42457398f330b900143532892ea1d0f5}{squaredDistance}}(a) > pivot.\mbox{\hyperlink{classPoint_a42457398f330b900143532892ea1d0f5}{squaredDistance}}(b))}
+\DoxyCodeLine{72             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{75 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGrahamScan_ad87ba02c8b5dd0ba8e96c2b09e9c9b79}\label{classGrahamScan_ad87ba02c8b5dd0ba8e96c2b09e9c9b79}} 
+\index{Graham\+Scan@{Graham\+Scan}!is\+Below@{is\+Below}}
+\index{is\+Below@{is\+Below}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{is\+Below()}{isBelow()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::is\+Below (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{pivot,  }\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{a,  }\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Determine if \textquotesingle{}a\textquotesingle{} lies strictly to left of \textquotesingle{}b\textquotesingle{} (in orientation) w.\+r.\+t pivot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pivot} & \\
+\hline
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If \textquotesingle{}a\textquotesingle{} lies strictly to left of \textquotesingle{}b\textquotesingle{} 
+
+false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{79 \{}
+\DoxyCodeLine{80     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPoint}{Point<T>::orient}}(pivot, a, b) < 0)}
+\DoxyCodeLine{81         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{82     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPoint}{Point<T>::orient}}(pivot, a, b) == 0)}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84         \textcolor{keywordflow}{if} (pivot.\mbox{\hyperlink{classPoint_a42457398f330b900143532892ea1d0f5}{squaredDistance}}(a) < pivot.\mbox{\hyperlink{classPoint_a42457398f330b900143532892ea1d0f5}{squaredDistance}}(b))}
+\DoxyCodeLine{85             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{88 \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}\label{classGrahamScan_a7d93b90073f5d60d142f8470ac8bf714}} 
+\index{Graham\+Scan@{Graham\+Scan}!convex\+Hull@{convex\+Hull}}
+\index{convex\+Hull@{convex\+Hull}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{convex\+Hull}{convexHull}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$\mbox{\hyperlink{classPoint}{Point}}$<$T$>$ $>$ \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::convex\+Hull\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Counter clockwiser order of points in the convex hull. 
+
+\mbox{\Hypertarget{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}\label{classGrahamScan_a5d428a11cebb2ff2f9e91d2644d7d0c5}} 
+\index{Graham\+Scan@{Graham\+Scan}!convex\+Hull\+Size@{convex\+Hull\+Size}}
+\index{convex\+Hull\+Size@{convex\+Hull\+Size}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{convex\+Hull\+Size}{convexHullSize}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::convex\+Hull\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of points in convex hull. 
+
+\mbox{\Hypertarget{classGrahamScan_a4769bbdb7caacde8c368a0074fccef19}\label{classGrahamScan_a4769bbdb7caacde8c368a0074fccef19}} 
+\index{Graham\+Scan@{Graham\+Scan}!num\+Points@{num\+Points}}
+\index{num\+Points@{num\+Points}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{num\+Points}{numPoints}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::num\+Points\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of points in input. 
+
+\mbox{\Hypertarget{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}\label{classGrahamScan_a586a222b7f2127410d9e20fda19c64d3}} 
+\index{Graham\+Scan@{Graham\+Scan}!order@{order}}
+\index{order@{order}!Graham\+Scan@{Graham\+Scan}}
+\subsubsection{\texorpdfstring{order}{order}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+stack$<$\mbox{\hyperlink{classPoint}{Point}}$<$T$>$ $>$ \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::order\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Order stack for maintaining points in the partially constructed convex hull. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{GrahamScan_8hpp}{Graham\+Scan.\+hpp}}\item 
+src/\mbox{\hyperlink{GrahamScan_8cpp}{Graham\+Scan.\+cpp}}\end{DoxyCompactItemize}

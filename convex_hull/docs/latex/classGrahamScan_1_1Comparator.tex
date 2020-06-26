@@ -1,0 +1,80 @@
+\hypertarget{classGrahamScan_1_1Comparator}{}\section{Graham\+Scan$<$ T $>$\+:\+:Comparator Class Reference}
+\label{classGrahamScan_1_1Comparator}\index{Graham\+Scan$<$ T $>$\+::\+Comparator@{Graham\+Scan$<$ T $>$\+::\+Comparator}}
+
+
+Compare ordering of points for graham\textquotesingle{}s scan.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGrahamScan_1_1Comparator_ada2c77065f6e3ef65989f1ea5ed68ffa}{Comparator}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classGrahamScan_1_1Comparator_ad20dd6c63895a0924c743879f721b4a8}{pivot}})
+\item 
+bool \mbox{\hyperlink{classGrahamScan_1_1Comparator_a3495ee5d0f1c01f201373b77f71514cb}{operator()}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p1, \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p2)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classGrahamScan_1_1Comparator_ad20dd6c63895a0924c743879f721b4a8}{pivot}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Graham\+Scan$<$ T $>$\+::\+Comparator}
+
+Compare ordering of points for graham\textquotesingle{}s scan. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGrahamScan_1_1Comparator_ada2c77065f6e3ef65989f1ea5ed68ffa}\label{classGrahamScan_1_1Comparator_ada2c77065f6e3ef65989f1ea5ed68ffa}} 
+\index{Graham\+Scan\+::\+Comparator@{Graham\+Scan\+::\+Comparator}!Comparator@{Comparator}}
+\index{Comparator@{Comparator}!Graham\+Scan\+::\+Comparator@{Graham\+Scan\+::\+Comparator}}
+\subsubsection{\texorpdfstring{Comparator()}{Comparator()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::Comparator\+::\+Comparator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{pivot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78         \{}
+\DoxyCodeLine{79             this->pivot = \mbox{\hyperlink{classGrahamScan_1_1Comparator_ad20dd6c63895a0924c743879f721b4a8}{pivot}};}
+\DoxyCodeLine{80         \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGrahamScan_1_1Comparator_a3495ee5d0f1c01f201373b77f71514cb}\label{classGrahamScan_1_1Comparator_a3495ee5d0f1c01f201373b77f71514cb}} 
+\index{Graham\+Scan\+::\+Comparator@{Graham\+Scan\+::\+Comparator}!operator()@{operator()}}
+\index{operator()@{operator()}!Graham\+Scan\+::\+Comparator@{Graham\+Scan\+::\+Comparator}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::Comparator\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p1,  }\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83         \{}
+\DoxyCodeLine{84             \textcolor{keywordtype}{int} o = \mbox{\hyperlink{classPoint_a33e4f445ed5dfc1a5f8cca8177c1a9c5}{Point<T>::orient}}(\mbox{\hyperlink{classGrahamScan_1_1Comparator_ad20dd6c63895a0924c743879f721b4a8}{pivot}}, p1, p2);}
+\DoxyCodeLine{85             \textcolor{keywordflow}{if} (o == 1)}
+\DoxyCodeLine{86                 \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{87             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (o == -1)}
+\DoxyCodeLine{88                 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{89             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{90                 \textcolor{keywordflow}{return} p1 < p2;}
+\DoxyCodeLine{91         \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classGrahamScan_1_1Comparator_ad20dd6c63895a0924c743879f721b4a8}\label{classGrahamScan_1_1Comparator_ad20dd6c63895a0924c743879f721b4a8}} 
+\index{Graham\+Scan\+::\+Comparator@{Graham\+Scan\+::\+Comparator}!pivot@{pivot}}
+\index{pivot@{pivot}!Graham\+Scan\+::\+Comparator@{Graham\+Scan\+::\+Comparator}}
+\subsubsection{\texorpdfstring{pivot}{pivot}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classPoint}{Point}}$<$T$>$ \mbox{\hyperlink{classGrahamScan}{Graham\+Scan}}$<$ T $>$\+::Comparator\+::pivot\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{GrahamScan_8hpp}{Graham\+Scan.\+hpp}}\end{DoxyCompactItemize}

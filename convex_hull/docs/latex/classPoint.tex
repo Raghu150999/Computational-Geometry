@@ -1,0 +1,275 @@
+\hypertarget{classPoint}{}\section{Point$<$ T $>$ Class Template Reference}
+\label{classPoint}\index{Point$<$ T $>$@{Point$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Point.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPoint_aea76b1130f1a203722d8f2254ced8e66}{Point}} ()
+\item 
+\mbox{\hyperlink{classPoint_a6583d71c9cddfe6e079135c724ea228c}{Point}} (T a, T b)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classPoint}{Point}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPoint_a7e220ceafc554dbb07185138eb3f4c20}{operator$<$}} (const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Compare two points, by order of x-\/coordinate then y-\/coordinate. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPoint_a5859891ca462697243a8cfa1e27cb91c}{operator==}} (const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Check equality of points. \end{DoxyCompactList}\item 
+pair$<$ double, double $>$ \mbox{\hyperlink{classPoint_a79b5e5f4d1e341cacfc6a5fa84eb80ee}{cross}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Compute cross product of two vectors (represented as points) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classPoint_a42457398f330b900143532892ea1d0f5}{squared\+Distance}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Compute squared Euclidean distance between points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPoint_acc51bfe04c5f9bcb8686e74d8f7b7bc1}{print}} ()
+\begin{DoxyCompactList}\small\item\em Utility to print the point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classPoint_a33e4f445ed5dfc1a5f8cca8177c1a9c5}{orient}} (const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p1, const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p2, const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&p3)
+\begin{DoxyCompactList}\small\item\em Compute orientation of the traversal of three points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}}
+\item 
+T \mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPoint_aea76b1130f1a203722d8f2254ced8e66}\label{classPoint_aea76b1130f1a203722d8f2254ced8e66}} 
+\index{Point@{Point}!Point@{Point}}
+\index{Point@{Point}!Point@{Point}}
+\subsubsection{\texorpdfstring{Point()}{Point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::\mbox{\hyperlink{classPoint}{Point}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15         \mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} = 0;}
+\DoxyCodeLine{16         \mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}} = 0;}
+\DoxyCodeLine{17     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPoint_a6583d71c9cddfe6e079135c724ea228c}\label{classPoint_a6583d71c9cddfe6e079135c724ea228c}} 
+\index{Point@{Point}!Point@{Point}}
+\index{Point@{Point}!Point@{Point}}
+\subsubsection{\texorpdfstring{Point()}{Point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::\mbox{\hyperlink{classPoint}{Point}} (\begin{DoxyParamCaption}\item[{T}]{a,  }\item[{T}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classPoint}{Point}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27         \mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} = a;}
+\DoxyCodeLine{28         \mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}} = b;}
+\DoxyCodeLine{29     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPoint_a79b5e5f4d1e341cacfc6a5fa84eb80ee}\label{classPoint_a79b5e5f4d1e341cacfc6a5fa84eb80ee}} 
+\index{Point@{Point}!cross@{cross}}
+\index{cross@{cross}!Point@{Point}}
+\subsubsection{\texorpdfstring{cross()}{cross()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+pair$<$double, double$>$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::cross (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compute cross product of two vectors (represented as points) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int signed area of the parallelipiped formed by the vectors 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64     \{}
+\DoxyCodeLine{65         \textcolor{keywordtype}{double} a = (double)\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} * (\textcolor{keywordtype}{double})p.\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}};}
+\DoxyCodeLine{66         \textcolor{keywordtype}{double} b = (double)p.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} * (\textcolor{keywordtype}{double})\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}};}
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} \{a, b\};}
+\DoxyCodeLine{68     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPoint_a7e220ceafc554dbb07185138eb3f4c20}\label{classPoint_a7e220ceafc554dbb07185138eb3f4c20}} 
+\index{Point@{Point}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Point@{Point}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+bool \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare two points, by order of x-\/coordinate then y-\/coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If \textquotesingle{}this\textquotesingle{} point is lesser in ordering 
+
+false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} != p.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}})}
+\DoxyCodeLine{41             \textcolor{keywordflow}{return} \mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} < p.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}};}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} \mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}} < p.\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}};}
+\DoxyCodeLine{43     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPoint_a5859891ca462697243a8cfa1e27cb91c}\label{classPoint_a5859891ca462697243a8cfa1e27cb91c}} 
+\index{Point@{Point}!operator==@{operator==}}
+\index{operator==@{operator==}!Point@{Point}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+bool \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check equality of points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         \textcolor{keywordflow}{return} (\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} == p.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} \&\& \mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}} == p.\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}});}
+\DoxyCodeLine{55     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPoint_a33e4f445ed5dfc1a5f8cca8177c1a9c5}\label{classPoint_a33e4f445ed5dfc1a5f8cca8177c1a9c5}} 
+\index{Point@{Point}!orient@{orient}}
+\index{orient@{orient}!Point@{Point}}
+\subsubsection{\texorpdfstring{orient()}{orient()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+static int \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::orient (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p1,  }\item[{const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p2,  }\item[{const \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Compute orientation of the traversal of three points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & \\
+\hline
+{\em p2} & \\
+\hline
+{\em p3} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value signifying orientation 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{79     \{}
+\DoxyCodeLine{80         \mbox{\hyperlink{classPoint}{Point<T>}} v1(p2.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} - p1.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}}, p2.\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}} - p1.\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}});}
+\DoxyCodeLine{81         \mbox{\hyperlink{classPoint}{Point<T>}} v2(p3.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} - p2.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}}, p3.\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}} - p2.\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}});}
+\DoxyCodeLine{82         \textcolor{keyword}{auto} o = v1.cross(v2);}
+\DoxyCodeLine{83         \textcolor{keywordflow}{if} (o.first > o.second)}
+\DoxyCodeLine{84             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{85         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (o.first < o.second)}
+\DoxyCodeLine{86             \textcolor{keywordflow}{return} -1;}
+\DoxyCodeLine{87         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{88             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{89     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPoint_acc51bfe04c5f9bcb8686e74d8f7b7bc1}\label{classPoint_acc51bfe04c5f9bcb8686e74d8f7b7bc1}} 
+\index{Point@{Point}!print@{print}}
+\index{print@{print}!Point@{Point}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Utility to print the point. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{108     \{}
+\DoxyCodeLine{109         cout << \mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} << \textcolor{stringliteral}{" "} << \mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}} << endl;}
+\DoxyCodeLine{110     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPoint_a42457398f330b900143532892ea1d0f5}\label{classPoint_a42457398f330b900143532892ea1d0f5}} 
+\index{Point@{Point}!squared\+Distance@{squared\+Distance}}
+\index{squared\+Distance@{squared\+Distance}!Point@{Point}}
+\subsubsection{\texorpdfstring{squared\+Distance()}{squaredDistance()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+double \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::squared\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compute squared Euclidean distance between points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int distance 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99         \textcolor{keywordtype}{double} dx = (double)\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}} - (\textcolor{keywordtype}{double})p.\mbox{\hyperlink{classPoint_a401d07562afaf0079121218025e66b76}{x}};}
+\DoxyCodeLine{100         \textcolor{keywordtype}{double} dy = (double)\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}} - (\textcolor{keywordtype}{double})p.\mbox{\hyperlink{classPoint_a65146418a33ebb2cd9acb85cade60ac9}{y}};}
+\DoxyCodeLine{101         \textcolor{keywordflow}{return} \mbox{\hyperlink{classUtils_abfc983311119a5d69174d8c082c00411}{Utils<double>::square}}(dx) + 
+      \mbox{\hyperlink{classUtils_abfc983311119a5d69174d8c082c00411}{Utils<double>::square}}(dy);}
+\DoxyCodeLine{102     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classPoint_a401d07562afaf0079121218025e66b76}\label{classPoint_a401d07562afaf0079121218025e66b76}} 
+\index{Point@{Point}!x@{x}}
+\index{x@{x}!Point@{Point}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+T \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::x}
+
+\mbox{\Hypertarget{classPoint_a65146418a33ebb2cd9acb85cade60ac9}\label{classPoint_a65146418a33ebb2cd9acb85cade60ac9}} 
+\index{Point@{Point}!y@{y}}
+\index{y@{y}!Point@{Point}}
+\subsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+T \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$\+::y}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Point_8hpp}{Point.\+hpp}}\end{DoxyCompactItemize}

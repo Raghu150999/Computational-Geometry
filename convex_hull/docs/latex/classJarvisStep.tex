@@ -1,0 +1,120 @@
+\hypertarget{classJarvisStep}{}\section{Jarvis\+Step$<$ T $>$ Class Template Reference}
+\label{classJarvisStep}\index{Jarvis\+Step$<$ T $>$@{Jarvis\+Step$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Jarvis\+Step.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJarvisStep_a92ed989e83f65b0ddeb17b2f4b278f2a}{Jarvis\+Step}} (\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ pivot, vector$<$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$$>$ \&points)
+\begin{DoxyCompactList}\small\item\em Construct a new Jarvis March object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classJarvisStep_a66f21d257e022fdeb8dc028bd2ac716c}{get\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Get the next point in jarvis march. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classJarvisStep_acda18cb9b72668a839239761aeedd7fa}{num\+Points}}
+\begin{DoxyCompactList}\small\item\em Number of points. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classJarvisStep_a35b1bc8bd742976a76dd47a5850f67fa}{next\+Point}}
+\begin{DoxyCompactList}\small\item\em Next point in jarvis march. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classJarvisStep_a92ed989e83f65b0ddeb17b2f4b278f2a}\label{classJarvisStep_a92ed989e83f65b0ddeb17b2f4b278f2a}} 
+\index{Jarvis\+Step@{Jarvis\+Step}!Jarvis\+Step@{Jarvis\+Step}}
+\index{Jarvis\+Step@{Jarvis\+Step}!Jarvis\+Step@{Jarvis\+Step}}
+\subsubsection{\texorpdfstring{Jarvis\+Step()}{JarvisStep()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classJarvisStep}{Jarvis\+Step}}$<$ T $>$\+::\mbox{\hyperlink{classJarvisStep}{Jarvis\+Step}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$}]{pivot,  }\item[{vector$<$ \mbox{\hyperlink{classPoint}{Point}}$<$ T $>$$>$ \&}]{points }\end{DoxyParamCaption})}
+
+
+
+Construct a new Jarvis March object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pivot} & Reference pivot from which points are compared \\
+\hline
+{\em points} & Set of candidate points for Convex Hull \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     \mbox{\hyperlink{classPoint}{Point<T>}} best(points[0]);}
+\DoxyCodeLine{15     \textcolor{keywordflow}{for} (\mbox{\hyperlink{classPoint}{Point<T>}} \&point : points)}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17         \textcolor{keywordflow}{if} (point == pivot)}
+\DoxyCodeLine{18             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{19         \textcolor{comment}{// Selecting the right-most-oriented point w.r.t pivot}}
+\DoxyCodeLine{20         \textcolor{keywordtype}{int} orientation = pivot.\mbox{\hyperlink{classPoint_a33e4f445ed5dfc1a5f8cca8177c1a9c5}{orient}}(pivot, best, point);}
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} (orientation < 0)}
+\DoxyCodeLine{22             best = point;}
+\DoxyCodeLine{23         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (orientation == 0)}
+\DoxyCodeLine{24         \{}
+\DoxyCodeLine{25             \textcolor{comment}{// If points are collinear take the farthest one}}
+\DoxyCodeLine{26             \textcolor{keywordflow}{if} (pivot.\mbox{\hyperlink{classPoint_a42457398f330b900143532892ea1d0f5}{squaredDistance}}(point) > pivot.
+      \mbox{\hyperlink{classPoint_a42457398f330b900143532892ea1d0f5}{squaredDistance}}(best))}
+\DoxyCodeLine{27                 best = point;}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30     \mbox{\hyperlink{classJarvisStep_a35b1bc8bd742976a76dd47a5850f67fa}{nextPoint}} = best;}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classJarvisStep_a66f21d257e022fdeb8dc028bd2ac716c}\label{classJarvisStep_a66f21d257e022fdeb8dc028bd2ac716c}} 
+\index{Jarvis\+Step@{Jarvis\+Step}!get\+Next@{get\+Next}}
+\index{get\+Next@{get\+Next}!Jarvis\+Step@{Jarvis\+Step}}
+\subsubsection{\texorpdfstring{get\+Next()}{getNext()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classPoint}{Point}}$<$ T $>$ \mbox{\hyperlink{classJarvisStep}{Jarvis\+Step}}$<$ T $>$\+::get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the next point in jarvis march. 
+
+\begin{DoxyReturn}{Returns}
+Point$<$\+T$>$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJarvisStep_a35b1bc8bd742976a76dd47a5850f67fa}{nextPoint}};}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classJarvisStep_a35b1bc8bd742976a76dd47a5850f67fa}\label{classJarvisStep_a35b1bc8bd742976a76dd47a5850f67fa}} 
+\index{Jarvis\+Step@{Jarvis\+Step}!next\+Point@{next\+Point}}
+\index{next\+Point@{next\+Point}!Jarvis\+Step@{Jarvis\+Step}}
+\subsubsection{\texorpdfstring{next\+Point}{nextPoint}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\mbox{\hyperlink{classPoint}{Point}}$<$T$>$ \mbox{\hyperlink{classJarvisStep}{Jarvis\+Step}}$<$ T $>$\+::next\+Point\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Next point in jarvis march. 
+
+\mbox{\Hypertarget{classJarvisStep_acda18cb9b72668a839239761aeedd7fa}\label{classJarvisStep_acda18cb9b72668a839239761aeedd7fa}} 
+\index{Jarvis\+Step@{Jarvis\+Step}!num\+Points@{num\+Points}}
+\index{num\+Points@{num\+Points}!Jarvis\+Step@{Jarvis\+Step}}
+\subsubsection{\texorpdfstring{num\+Points}{numPoints}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+int \mbox{\hyperlink{classJarvisStep}{Jarvis\+Step}}$<$ T $>$\+::num\+Points\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of points. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{JarvisStep_8hpp}{Jarvis\+Step.\+hpp}}\item 
+src/\mbox{\hyperlink{JarvisStep_8cpp}{Jarvis\+Step.\+cpp}}\end{DoxyCompactItemize}
